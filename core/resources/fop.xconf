@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<fop version="1.0">
+  <base>.</base>
+  <source-resolution>72</source-resolution>
+  <target-resolution>72</target-resolution>
+
+  <default-page-settings height="29.7cm" width="21.0cm"/>
+
+  <renderers>
+    <renderer mime="application/pdf">
+      <filterList>
+        <value>flate</value>
+      </filterList>
+
+      <fonts>
+        <!-- embedded fonts -->
+        <!--
+        This information must exactly match the font specified
+        in the fo file. Otherwise it will use a default font.
+
+        For example,
+        <fo:inline font-family="Arial" font-weight="bold" font-style="normal">
+            Arial-normal-normal font
+        </fo:inline>
+        for the font triplet specified by:
+        <font-triplet name="Arial" style="normal" weight="bold"/>
+
+        If you do not want to embed the font in the pdf document
+        then do not include the "embed-url" attribute.
+        The font will be needed where the document is viewed
+        for it to be displayed properly.
+
+        possible styles: normal | italic | oblique | backslant
+        possible weights: normal | bold | 100 | 200 | 300 | 400
+                          | 500 | 600 | 700 | 800 | 900
+        (normal = 400, bold = 700)
+        -->
+
+        <!--
+        <font metrics-url="arial.xml" kerning="yes" embed-url="arial.ttf">
+          <font-triplet name="Arial" style="normal" weight="normal"/>
+          <font-triplet name="ArialMT" style="normal" weight="normal"/>
+        </font>
+        <font metrics-url="arialb.xml" kerning="yes" embed-url="arialb.ttf">
+          <font-triplet name="Arial" style="normal" weight="bold"/>
+          <font-triplet name="ArialMT" style="normal" weight="bold"/>
+        </font>
+        -->
+
+        <!-- auto-detect fonts -->
+        <auto-detect/>
+
+      </fonts>
+    </renderer>
+  </renderers>
+
+</fop>
