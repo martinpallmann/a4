@@ -3,6 +3,7 @@ package a4
 import java.time.LocalDate
 import java.util.concurrent.atomic.AtomicBoolean
 
+import a4.letter.Resources
 import com.googlecode.lanterna.TerminalSize
 import com.googlecode.lanterna.gui2.Interactable.FocusChangeDirection
 import com.googlecode.lanterna.gui2.TextBox.DefaultTextBoxRenderer
@@ -12,7 +13,7 @@ import com.googlecode.lanterna.input.KeyStroke
 
 import scala.collection.JavaConverters._
 
-class MyWindow(labels: Resources.letter, default: Letter, print: Letter => Unit, cancel: () => Unit)
+class MyWindow(labels: Resources, default: Letter, print: Letter => Unit, cancel: () => Unit)
   extends BasicWindow() {
 
   setHints(List(CENTERED).asJava)

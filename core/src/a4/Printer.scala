@@ -15,8 +15,7 @@ object Printer {
     try {
       val conf = getClass.getClassLoader.getResource("fop.xconf").toURI
       val xsl = getClass.getClassLoader.getResourceAsStream("letter.xsl")
-      val fopFactory = FopFactory.newInstance(conf)
-      val fop = fopFactory.newFop(MimeConstants.MIME_PDF, out)
+      val fop = FopFactory.newInstance(conf).newFop(MimeConstants.MIME_PDF, out)
       val factory = TransformerFactory.newInstance()
       val xslt = new StreamSource(xsl)
       val transformer = factory.newTransformer(xslt)

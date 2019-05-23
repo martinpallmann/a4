@@ -3,15 +3,13 @@ package a4
 import java.io.File
 import java.time.LocalDate
 import java.util.Locale
-
-import a4.Args.Node
 import a4.Errors.FileExists
 import a4.config.{Config, ConfigParser}
+import a4.letter.Resources
 import com.googlecode.lanterna.TextColor
 import com.googlecode.lanterna.gui2.MultiWindowTextGUI
 import com.googlecode.lanterna.screen.TerminalScreen
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory
-import scopt.OptionDef
 
 object Main {
 
@@ -68,8 +66,6 @@ object Main {
 
   def renderMain(out: Option[File], force: Boolean, background: Int): Unit = {
     val config = ConfigParser.parseDefaultConfig.getOrElse(Config())
-    val locale = Locale.ENGLISH
-    val labels = Resources("letter", locale)
     val term = new DefaultTerminalFactory().createTerminal
     val screen = new TerminalScreen(term)
     val theme = MyTheme()
@@ -91,7 +87,7 @@ object Main {
     }
 
     val window = new MyWindow(
-      labels,
+      Resources(Locale.ENGLISH),
       Letter(
         "Sehr geehrte Damen und Herren,",
         "Mit freundlichen Grüßen",
